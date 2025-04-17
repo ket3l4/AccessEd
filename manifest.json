@@ -1,0 +1,13 @@
+{
+    "name": "Listen Up",
+    "manifest_version": 3,
+    "version": "1.0",
+    "description": "A functional screen reader browser extension.",
+    "permissions": ["activeTab", "scripting"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "Listen Up"
+    }
+}
