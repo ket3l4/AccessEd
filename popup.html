@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Whisper Web</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 16px;
+      width: 300px;
+      color: #333;
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .header img {
+      width: 32px;
+      height: 32px;
+      margin-right: 12px;
+    }
+    
+    h1 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 500;
+    }
+    
+    .toggle-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .toggle {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+    
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 24px;
+      transition: .3s;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: .3s;
+    }
+    
+    input:checked + .slider {
+      background-color: #4285F4;
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+    
+    .setting-row {
+      margin-bottom: 12px;
+    }
+    
+    .setting-row label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    select, input[type="range"], input[type="color"] {
+      width: 100%;
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    
+    .status {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="assets/icon48.png" alt="Whisper Web Logo">
+    <h1>Whisper Web</h1>
+  </div>
+  
+  <div class="toggle-container">
+    <span>Enable Whisper Web</span>
+    <label class="toggle">
+      <input type="checkbox" id="enableToggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+  
+  <div class="settings">
+    <div class="setting-row">
+      <label for="cursorSize">Cursor Size</label>
+      <select id="cursorSize">
+        <option value="small">Small</option>
+        <option value="medium" selected>Medium</option>
+        <option value="large">Large</option>
+      </select>
+    </div>
+    
+    <div class="setting-row">
+      <label for="readingSpeed">Reading Speed</label>
+      <select id="readingSpeed">
+        <option value="slow">Slow</option>
+        <option value="normal" selected>Normal</option>
+        <option value="fast">Fast</option>
+      </select>
+    </div>
+    
+    <div class="setting-row">
+      <label for="volume">Volume</label>
+      <input type="range" id="volume" min="0" max="1" step="0.1" value="0.8">
+    </div>
+    
+    <div class="setting-row">
+      <label for="highlightColor">Highlight Color</label>
+      <input type="color" id="highlightColor" value="#4285F4">
+    </div>
+  </div>
+  
+  <div class="status" id="status">
+    Ready to assist
+  </div>
+  
+  <div class="footer">
+    Whisper Web v1.0 - Helping the visually and auditory impaired
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+/* styles.css - Styling for the extension's on-page elements */
+
+/* Highlight for interactive elements */
+.whisper-web-highlight {
+  outline: 3px solid #4285F4 !important; /* Default color, will be overridden by settings */
+  outline-offset: 2px !important;
+  transition: outline-color 0.2s ease-in-out !important;
+}
+
+/* Text selection styling */
+.whisper-web-active ::selection {
+  background-color: #FBBC05 !important; /* Google Yellow */
+  color: #000 !important;
+}
+
+/* Enhance text readability when extension is active */
+.whisper-web-active {
+  line-height: 1.5 !important;
+}
+
+/* Make focus visible for keyboard navigation */
+.whisper-web-active *:focus {
+  outline: 3px solid #EA4335 !important; /* Google Red */
+  outline-offset: 2px !important;
+}
+
+/* Increase contrast for text with extension active */
+.whisper-web-active p, 
+.whisper-web-active h1, 
+.whisper-web-active h2, 
+.whisper-web-active h3, 
+.whisper-web-active h4, 
+.whisper-web-active h5, 
+.whisper-web-active h6, 
+.whisper-web-active span, 
+.whisper-web-active a, 
+.whisper-web-active label {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+
+/* Ensure background contrast */
+.whisper-web-active p, 
+.whisper-web-active h1, 
+.whisper-web-active h2, 
+.whisper-web-active h3, 
+.whisper-web-active h4, 
+.whisper-web-active h5, 
+.whisper-web-active h6, 
+.whisper-web-active span, 
+.whisper-web-active a, 
+.whisper-web-active label {
+  background-color: transparent !important;
+}
+
+/* Ensure links are clearly identifiable */
+.whisper-web-active a {
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+/* Ensure buttons are clearly identifiable */
+.whisper-web-active button,
+.whisper-web-active [role="button"] {
+  cursor: pointer !important;
+}

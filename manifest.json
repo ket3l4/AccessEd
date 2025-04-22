@@ -1,13 +1,34 @@
 {
-    "name": "Listen Up",
-    "manifest_version": 3,
-    "version": "1.0",
-    "description": "A functional screen reader browser extension.",
-    "permissions": ["activeTab", "scripting"],
-    "background": {
-        "service_worker": "background.js"
-    },
-    "action": {
-        "default_title": "Listen Up"
+  "manifest_version": 3,
+  "name": "Whisper Web",
+  "version": "1.0",
+  "description": "A browser extension that helps the visually and auditory impaired with enhanced screen reading capabilities",
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
     }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
 }
