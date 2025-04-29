@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeVoiceSelection();
 
   // Load settings
-  loadSettings();
+  setTimeout(loadSettings, 100);
 
   // Check current status from active tab
   checkTabStatus();
@@ -40,8 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSetting("zoomLensActive", this.checked);
     updateFeatures();
   });
-
+  
   readAloudToggle.addEventListener("change", function() {
+    console.log("Change event triggered");
     updateSetting("readAloudActive", this.checked);
     updateFeatures();
   });
@@ -67,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSetting("voiceName", this.value);
   });
 
+    
+
   // Functions
   function loadSettings() {
     chrome.storage.sync.get(null, (settings) => {
@@ -88,14 +91,16 @@ document.addEventListener("DOMContentLoaded", function () {
       readingSpeed.value = currentSettings.readingSpeed;
       volume.value = currentSettings.volume;
       highlightColor.value = currentSettings.highlightColor;
+
       
       // Voice selection will be updated when voices are loaded
       if (currentSettings.voiceName && voiceSelection.querySelector(`option[value="${currentSettings.voiceName}"]`)) {
         voiceSelection.value = currentSettings.voiceName;
       }
-      
+      updateFeatures();
       // Update status message
       updateStatusMessage();
+      
     });
   }
 
@@ -158,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chrome.storage.sync.set({ [key]: value }, () => {
       // Update status after saving
       updateStatusMessage();
+      updateFeatures();
     });
   }
 
