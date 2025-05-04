@@ -1,16 +1,22 @@
 # AccessEd
 Browser extension for *digital accessibility*.
+
 A GNEC hackathon project to make the internet and Education more inclusive and accessable to everyone.
 
 ## Main Features:
 Zoom Lens - creates a ring around the cursor for easier recognition
+
 Read Text - read text and properties of items pressed ("Button, next page")
+
 Describe Images - uses Gemini API to describe images hovered on 
+
 ("The image is a chinstrap penguin standing on a brown surface beside a vast blue ocean, it is mostly black with a white belly.")
+
 Voice Accent - most languages supported
+
 Multi-language - not yet supported
 
-## Desscribe Images Preview
+## Describe Images Preview
 [![Watch the video](https://img.youtube.com/vi/jSmJF4AVCGA/hqdefault.jpg)](https://www.youtube.com/embed/jSmJF4AVCGA)
 
 Cataract Vision vs Normal Vision
