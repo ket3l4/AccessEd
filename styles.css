@@ -1,0 +1,119 @@
+/* styles.css - Styling for the extension's on-page elements */
+
+/* Highlight for interactive elements */
+.whisper-web-highlight {
+  outline: 3px solid #4285f4 !important; /* Default color, will be overridden by settings */
+  outline-offset: 2px !important;
+  transition: outline-color 0.2s ease-in-out !important;
+}
+
+/* Text selection styling */
+.whisper-web-active ::selection {
+  background-color: #fbbc05 !important; /* Google Yellow */
+  color: #000 !important;
+}
+
+/* Enhance text readability when extension is active */
+.whisper-web-active {
+  line-height: 1.5 !important;
+}
+
+/* Make focus visible for keyboard navigation */
+.whisper-web-active *:focus {
+  outline: 3px solid #ea4335 !important; /* Google Red */
+  outline-offset: 2px !important;
+}
+
+/* Increase contrast for text with extension active */
+.whisper-web-active p,
+.whisper-web-active h1,
+.whisper-web-active h2,
+.whisper-web-active h3,
+.whisper-web-active h4,
+.whisper-web-active h5,
+.whisper-web-active h6,
+.whisper-web-active span,
+.whisper-web-active a,
+.whisper-web-active label {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+
+/* Ensure background contrast */
+.whisper-web-active p,
+.whisper-web-active h1,
+.whisper-web-active h2,
+.whisper-web-active h3,
+.whisper-web-active h4,
+.whisper-web-active h5,
+.whisper-web-active h6,
+.whisper-web-active span,
+.whisper-web-active a,
+.whisper-web-active label {
+  background-color: transparent !important;
+}
+
+/* Ensure links are clearly identifiable */
+.whisper-web-active a {
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+/* Ensure buttons are clearly identifiable */
+.whisper-web-active button,
+.whisper-web-active [role="button"] {
+  cursor: pointer !important;
+}
+
+/* Zoom lens styling */
+#whisper-zoom-lens {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+  border: 2px solid #4285f4 !important;
+  z-index: 999999 !important;
+}
+
+/* Speech indicator styling */
+#whisper-speech-indicator {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+  z-index: 999998 !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  font-size: 14px !important;
+}
+
+/* Notification styling */
+.whisper-notification {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  font-size: 14px !important;
+  z-index: 999997 !important;
+}
+
+/* Screen reader only text */
+.whisper-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Image description loading state */
+.whisper-image-loading {
+  outline: 2px dashed #4285f4 !important;
+  outline-offset: 2px !important;
+}
+
+/* Animation for notifications */
+@keyframes whisper-fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.whisper-fade-in-out {
+  animation: whisper-fadeInOut 4s forwards !important;
+}

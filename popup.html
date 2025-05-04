@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AccessEd</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 16px;
+      width: 320px;
+      color: #333;
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .header img {
+      width: 32px;
+      height: 32px;
+      margin-right: 12px;
+    }
+    
+    h1 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 500;
+    }
+    
+    .toggle-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .toggle {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+    
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 24px;
+      transition: .3s;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: .3s;
+    }
+    
+    input:checked + .slider {
+      background-color: #4285F4;
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+    
+    .setting-row {
+      margin-bottom: 12px;
+    }
+    
+    .setting-row label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    select, input[type="range"], input[type="color"] {
+      width: 100%;
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    
+    .features-section {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #eee;
+    }
+    
+    .feature-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .feature-description {
+      font-size: 12px;
+      color: #666;
+      margin-top: -8px;
+      margin-bottom: 12px;
+    }
+    
+    .status {
+      margin-top: 16px;
+      padding: 8px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .shortcuts {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .shortcuts h3 {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    
+    .shortcuts ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+    }
+    
+    .voice-selection {
+      width: 100%;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="assets/icon48.png" alt="AccessEd Logo">
+    <h1>AccessEd</h1>
+  </div>
+  
+  <div class="toggle-container">
+    <span>Enable AccessEd</span>
+    <label class="toggle">
+      <input type="checkbox" id="enableToggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+  
+  <div class="features-section">
+    <h3>Features</h3>
+    
+    <div class="feature-row">
+      <span>Zoom Lens (Bigger Cursor)</span>
+      <label class="toggle">
+        <input type="checkbox" id="zoomLensToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="feature-description">Magnifies content under your cursor</div>
+    
+    <div class="feature-row">
+      <span>Read Aloud</span>
+      <label class="toggle">
+        <input type="checkbox" id="readAloudToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="feature-description">Click on text to have it read aloud</div>
+    
+    <div class="feature-row">
+      <span>Describe Images</span>
+      <label class="toggle">
+        <input type="checkbox" id="describeImagesToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="feature-description">Hover over images to hear descriptions</div>
+  </div>
+  
+  <div class="settings">
+    <h3>Settings</h3>
+    
+    <div class="setting-row" id="voiceSelectionContainer">
+      <label for="voiceSelection">Voice</label>
+      <select id="voiceSelection" class="voice-selection">
+        <option value="">Default Voice</option>
+        <!-- Voice options will be populated by JavaScript -->
+      </select>
+    </div>
+    
+    <div class="setting-row">
+      <label for="readingSpeed">Reading Speed</label>
+      <select id="readingSpeed">
+        <option value="slow">Slow</option>
+        <option value="normal" selected>Normal</option>
+        <option value="fast">Fast</option>
+      </select>
+    </div>
+    
+    <div class="setting-row">
+      <label for="volume">Volume</label>
+      <input type="range" id="volume" min="0" max="1" step="0.1" value="0.8">
+    </div>
+    
+    <div class="setting-row">
+      <label for="highlightColor">Highlight Color</label>
+      <input type="color" id="highlightColor" value="#4285F4">
+    </div>
+  </div>
+  
+  <div class="shortcuts">
+    <h3>Keyboard Shortcuts</h3>
+    <ul>
+      <li><strong>Ctrl+Shift+W</strong> - Toggle extension on/off</li>
+      <li><strong>Ctrl+Z</strong> - Toggle zoom lens</li>
+      <li><strong>Ctrl+R</strong> - Toggle read aloud</li>
+      <li><strong>Ctrl+D</strong> - Toggle image descriptions</li>
+      <li><strong>Esc</strong> - Stop reading</li>
+    </ul>
+  </div>
+  
+  <div class="status" id="status">
+    Ready to assist
+  </div>
+  
+  <div class="footer">
+    AccessEd v1.1 - Assisting the visually and auditory impaired
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
