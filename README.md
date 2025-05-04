@@ -11,6 +11,7 @@ Voice Accent - most languages supported
 Multi-language - not yet supported
 
 ## Desscribe Images Preview
+[![Watch the video](https://img.youtube.com/vi/jSmJF4AVCGA/hqdefault.jpg)](https://www.youtube.com/embed/jSmJF4AVCGA)
 
 Cataract Vision vs Normal Vision
 - demonstration of **Zoom Lens** and **Describe Images** feature
