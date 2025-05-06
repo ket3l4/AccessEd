@@ -17,7 +17,7 @@ const state = {
 };
 
 // Constants
-const DESCRIBE_ENDPOINT = "http://localhost:5000/describe_image";
+const DESCRIBE_ENDPOINT = "https://b33.pythonanywhere.com/describe_image";
 const LENS_SIZE = 150; // Diameter of the lens in pixels
 const ZOOM_LEVEL = 2; // Magnification level
 const IMAGE_DESCRIPTION_CACHE = new Map(); // Cache for image descriptions
