@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeVoiceSelection();
 
   // Load settings
-  setTimeout(loadSettings, 100);
+  setTimeout(loadSettings, 30);
 
   // Check current status from active tab
   checkTabStatus();
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
         status.textContent = "Enabled, but no features are active. Enable features above.";
       }
     } else {
-      status.textContent = "Disabled: Enable the toggle to start using Whisper Web";
+      status.textContent = "Disabled: Enable the toggle to start using AccessEd";
     }
   }
 

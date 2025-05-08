@@ -325,7 +325,7 @@ function createZoomLens() {
   zoomLens.id = "whisper-zoom-lens";
   zoomLens.setAttribute("aria-hidden", "true"); // Hide from screen readers
   zoomLens.style.position = "absolute";
-  zoomLens.style.border = "solid blue";
+  zoomLens.style.border = "solid green";
   zoomLens.style.borderWidth = "150px";
   zoomLens.style.borderRadius = "50%";
   zoomLens.style.width = `${LENS_SIZE}px`;
@@ -694,7 +694,7 @@ async function handleImageHover(event) {
     
     if (!description) {
       // Show loading indicator
-      img.style.outline = "2px dashed #4285F4";
+      img.style.outline = "2px dashed #46B8CC";
       
       // Try to use alt text first if available and meaningful
       if (img.alt && img.alt.length > 3 && img.alt !== "image") {
@@ -785,7 +785,7 @@ function handleKeyboardNavigation(event) {
         state.zoomLensActive = !state.zoomLensActive;
         updateFeatureStates();
         event.preventDefault();
-        showNotification(`Zoom lens ${state.zoomLensActive ? 'enabled' : 'disabled'}`);
+        showNotification(`Bigger Cursor ${state.zoomLensActive ? 'enabled' : 'disabled'}`);
         break;
         
       case 'r': // Ctrl+R to toggle read aloud
@@ -815,10 +815,10 @@ function registerKeyboardShortcuts() {
       
       if (state.isActive) {
         enableExtension();
-        showNotification("Accessibility assistant enabled");
+        showNotification("AccessEd enabled");
       } else {
         disableExtension();
-        showNotification("Accessibility assistant disabled");
+        showNotification("AccessEd disabled");
       }
       
       // Update storage
