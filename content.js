@@ -17,9 +17,9 @@ const state = {
 };
 
 // Constants
-const DESCRIBE_ENDPOINT = "http://localhost:5000/describe_image";
+const DESCRIBE_ENDPOINT = "https://b33.pythonanywhere.com/describe_image";
 const LENS_SIZE = 150; // Diameter of the lens in pixels
-const ZOOM_LEVEL = 2; // Magnification level
+const ZOOM_LEVEL = 10; // Magnification level
 const IMAGE_DESCRIPTION_CACHE = new Map(); // Cache for image descriptions
 
 // DOM Elements
@@ -184,7 +184,7 @@ function disableExtension() {
 function updateFeatureStates() {
   // Handle zoom lens (bigger cursor)
   if (state.isActive && state.zoomLensActive) {
-    document.body.style.cursor = "none";
+    document.body.style.cursor = "'url(/assets/cursor.png), auto";
   } else {
     hideZoomLens();
     document.body.style.cursor = "default";
@@ -278,7 +278,7 @@ function highlightElement(element) {
   element.classList.add("whisper-web-highlight");
   
   // Use custom highlight color from settings
-  element.style.outline = `3px solid ${state.settings.highlightColor || "#4285F4"}`;
+  element.style.outline = `5px solid ${state.settings.highlightColor || "#4285F4"}`;
   element.style.outlineOffset = "2px";
   
   // Add ARIA attributes for screen readers
@@ -292,7 +292,7 @@ function highlightElement(element) {
     description.className = "whisper-sr-only";
     description.textContent = "Highlighted element. Click to hear description. Double click to activate.";
     description.style.position = "absolute";
-    description.style.width = "1px";
+    description.style.width = "2px";
     description.style.height = "1px";
     description.style.overflow = "hidden";
     description.style.clip = "rect(0, 0, 0, 0)";
@@ -325,7 +325,8 @@ function createZoomLens() {
   zoomLens.id = "whisper-zoom-lens";
   zoomLens.setAttribute("aria-hidden", "true"); // Hide from screen readers
   zoomLens.style.position = "absolute";
-  zoomLens.style.border = "2px solid black";
+  zoomLens.style.border = "solid blue";
+  zoomLens.style.borderWidth = "150px";
   zoomLens.style.borderRadius = "50%";
   zoomLens.style.width = `${LENS_SIZE}px`;
   zoomLens.style.height = `${LENS_SIZE}px`;
@@ -333,7 +334,7 @@ function createZoomLens() {
   zoomLens.style.display = "none"; // Initially hidden
   zoomLens.style.overflow = "hidden";
   zoomLens.style.zIndex = "999999"; // Ensure it's on top
-  zoomLens.style.boxShadow = "0 0 10px rgba(0,0,0,0.5)";
+  zoomLens.style.boxShadow = "0 0 10px rgba(121, 121, 121, 0.5)";
   
   // Create a canvas element for better performance
   const canvas = document.createElement("canvas");
@@ -392,16 +393,16 @@ function updateZoomLens(e) {
     console.error("Zoom lens rendering error:", error);
     
     // Use a simple color instead
-    ctx.fillStyle = "#f0f0f0";
     ctx.beginPath();
     ctx.arc(LENS_SIZE/2, LENS_SIZE/2, LENS_SIZE/2 - 2, 0, Math.PI * 2);
     ctx.fill();
     
     // Add text explaining the issue
-    ctx.fillStyle = "#333";
-    ctx.font = "12px sans-serif";
+    ctx.fillStyle = "#ff7f7f";
+    ctx.font = "15px sans-serif";
     ctx.textAlign = "center";
     ctx.fillText("Zoom unavailable", LENS_SIZE/2, LENS_SIZE/2);
+
   }
 }
 
@@ -427,11 +428,12 @@ function createSpeechIndicator() {
   speechIndicator.style.background = "#4285F4";
   speechIndicator.style.color = "white";
   speechIndicator.style.padding = "10px 20px";
-  speechIndicator.style.borderRadius = "20px";
+  speechIndicator.style.borderRadius = "2px";
   speechIndicator.style.boxShadow = "0 2px 10px rgba(0,0,0,0.2)";
   speechIndicator.style.zIndex = "999999";
   speechIndicator.style.display = "none"; // Initially hidden
   speechIndicator.style.opacity = "0.9";
+  speechIndicator.style.fontSize = "20px";
   speechIndicator.style.transition = "opacity 0.3s";
   
   // Add stop button
@@ -448,7 +450,7 @@ function createSpeechIndicator() {
   stopButton.style.display = "inline-flex";
   stopButton.style.justifyContent = "center";
   stopButton.style.alignItems = "center";
-  stopButton.style.fontSize = "12px";
+  stopButton.style.fontSize = "20px";
   stopButton.setAttribute("aria-label", "Stop speaking");
   
   stopButton.addEventListener("click", (e) => {
@@ -666,6 +668,7 @@ function readText(text) {
     showNotification("Failed to start speech synthesis", "error");
   }
 }
+
 
 // Stop any ongoing speech
 function stopSpeech() {

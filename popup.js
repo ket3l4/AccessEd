@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeVoiceSelection();
 
   // Load settings
-  setTimeout(loadSettings, 100);
+  setTimeout(loadSettings, 30);
 
   // Check current status from active tab
   checkTabStatus();
-
+  
   // Event Listeners
   enableToggle.addEventListener("change", function () {
     updateSetting("enabled", this.checked);
@@ -158,7 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateSetting(key, value) {
     // Update local state
     currentSettings[key] = value;
-    
     // Save to storage
     chrome.storage.sync.set({ [key]: value }, () => {
       // Update status after saving
@@ -206,12 +205,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const stopBtn = document.createElement("button");
       stopBtn.id = "stopReadingBtn";
       stopBtn.textContent = "Stop Reading";
-      stopBtn.style.marginTop = "8px";
+      stopBtn.style.marginTop = "10px";
       stopBtn.style.padding = "4px 8px";
       stopBtn.style.backgroundColor = "#ea4335";
       stopBtn.style.color = "white";
       stopBtn.style.border = "none";
-      stopBtn.style.borderRadius = "4px";
+      stopBtn.style.borderRadius = "5px";
       stopBtn.style.cursor = "pointer";
       
       stopBtn.addEventListener("click", stopReading);
