@@ -1,6 +1,6 @@
 # AccessEd
 Browser extension for *digital accessibility*.
-A GNEC hackathon project to make the internet more inclusive and accessable for everyone.
+
 
 ## Main Features:
 Bigger Cursor
@@ -20,6 +20,8 @@ Zoom Lens(in progress)
 
 Impaired Vision vs Normal Vision
 - demonstration of **Bigger cursor** and **Describe Images** feature
+
+
 
 ## Survey
 This survey aims to collect opinions and thoughts on:
